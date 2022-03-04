@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Koer {
     String nimi;
     String tõug;
@@ -20,13 +22,13 @@ public class Koer {
 
     public void toidukogus(){
         if(vanus<=1){
-            if(suurus=="väike"){
+            if(Objects.equals(suurus, "väike")){
                 System.out.println(nimi + " peab sööma " + kaal * 0.14 + " kg kuivtoitu.");
             }else{
                 System.out.println(nimi + " peab sööma " +kaal * 0.22 + " kg kuivtoitu.");
             }
         }else{
-            if(suurus=="väike"){
+            if(Objects.equals(suurus, "väike")){
                 System.out.println(nimi + " peab sööma " +kaal * 0.1 + "kg kuivtoitu.");
             }else{
                 System.out.println(nimi + " peab sööma " +kaal * 0.2 + "kg kuivtoitu.");
