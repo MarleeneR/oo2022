@@ -1,14 +1,14 @@
-public class Player implements WorldObject {
-    int coordinateY;
-    int coordinateX;
+// extends -- pärilus Inheritance 1x
+// implements -- liides Interface ...x
+
+public class Player extends Character implements WorldObject {
     Direction direction; //3-ndl kodutöö
     Item item;
 
 
     //Constructor ˇsama nimega kui klass
     public Player(int worldHeight, int worldWidth){
-        this.coordinateY = generateRandomCoordinate(worldHeight);
-        this.coordinateX = generateRandomCoordinate(worldWidth);
+        super(worldHeight, worldWidth); // super on sama asi mis new Charecter();
         this.direction = Direction.UP;
     }
 
@@ -17,9 +17,7 @@ public class Player implements WorldObject {
         System.out.println("Mängija sai eseme + " + item.itemType);
     }
 
-    public int generateRandomCoordinate(int worldSize){
-        return (int) (Math.random()*(worldSize-2))+1; //cast
-    }
+
 
     public void movePlayer(String input, int worldHeight, int worldWidth){
         switch (input){

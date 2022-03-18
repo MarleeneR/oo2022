@@ -1,16 +1,8 @@
-public class Enemy implements WorldObject{
-    // (muutuja aktiivne) paremklõps -> refactor -> rename
-    int coordinateY;
-    int coordinateX;
+public class Enemy extends Character implements WorldObject{
 
     //new Enemy(1,6)
     public Enemy(int worldHeight, int worldWidth){
-        this.coordinateY = generateRandomCoordinate(worldHeight);
-        this.coordinateX = generateRandomCoordinate(worldWidth);
+        super(worldHeight, worldWidth);
     }
 
-    public int generateRandomCoordinate(int worldSize){
-        return (int) (Math.random()*(worldSize-2))+1;
-
-    }
 }
