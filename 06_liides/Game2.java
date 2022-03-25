@@ -24,6 +24,7 @@ public class Game2 {
         Item dagger = new Item(world.height, world.width, ItemType.DAGGER);
         world.items = Arrays.asList(sword,hammer, dagger);
 
+        /*world.characters.add(mangija1);*/
 
         world.printMap(mangija1.coordinateY, mangija1.coordinateX, vaenlane1.coordinateY, vaenlane1.coordinateX);
 
