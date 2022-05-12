@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
 
     @Autowired
@@ -25,8 +26,9 @@ public class ProductController {
     }
 
     @DeleteMapping("products/{index}") // localhost:8080/products/1 DELETE
-    public void deleteProduct(@PathVariable Long index) {
+    public List<Product> deleteProduct(@PathVariable Long index) {
          productRepository.deleteById(index);
+         return productRepository.findAll();
     }
 
     @DeleteMapping ("products") // localhost:8080/products   DELETE
@@ -43,5 +45,10 @@ public class ProductController {
     @PutMapping ("products/{index}") // localhost:8080/products/1  PUT
     public void editProduct(@PathVariable int index, @RequestBody Product product){
         productRepository.save(product);
+    }
+
+    @PostMapping ("add-all-products") // localhost:8080/products/1  PUT
+    public void addAllProducts(@RequestBody List<Product> products){
+        productRepository.saveAll(products);
     }
 }
